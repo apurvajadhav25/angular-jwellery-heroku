@@ -1,0 +1,55 @@
+<ng-container>
+    <div class="row" style="margin:6%;">
+        <div class="col-12 col-md-6" style="padding-bottom: 10%;">
+            <div class="row">
+                <div class="col-12 col-md-12 contact-heading">
+                    {{'text.getInTouch' | translate}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <i class="pi pi-compass icons"></i>
+                    <span class="para">{{address}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <i class="pi pi-phone icons"></i>
+                    <span class="para">{{mobile}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <i class="pi pi-mobile icons"></i>
+                    <span class="para">{{contactUsEmail}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="row">
+                <div class="col-12 col-md-12 contact-heading">
+                    {{'text.sendMessage' | translate}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-6">
+                    <input type="text" pInputText placeholder="{{'placeholder.name' | translate}}" [(ngModel)] = "name">
+                </div>
+                <div class="col-6 col-md-6">
+                    <input type="text" pInputText placeholder="{{'placeholder.email' | translate}}" name="toEmail" [(ngModel)] = "email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <textarea pInputTextarea placeholder="{{'placeholder.message' | translate}}" cols="51" [(ngModel)] = "message" ></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <button pButton type="button" (click)="onClick()"  class="p-button-outlined" style="border: 2px solid black;color: black;">{{'button.send' | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<app-footer></app-footer>

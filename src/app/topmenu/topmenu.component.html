@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="nav-link" routerLink="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span style="color: rgba(255,255,255,.5);">{{'topmenu.home' | translate}}</span>
+  </a>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" style="padding-left: 15px;">
+      
+      <a class="nav-link" routerLink="shoping-cart" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span style="color: rgba(255,255,255,.5);">{{'topmenu.products' | translate}}</span>
+      </a>
+
+      <a class="nav-link" routerLink="contact" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span style="color: rgba(255,255,255,.5);">{{'topmenu.contactUs' | translate}}</span>
+      </a>
+
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+    <div>
+      <span style="color: rgba(255,255,255,.5);">{{value}}</span>
+    </div>
+   
+    <a *ngIf="!isUserLoggedIn()" class="nav-link"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="show()">
+      <span style="color: rgba(255,255,255,.5);">LOGIN</span>
+    </a>
+    
+    <!-- <a *ngIf="!login1"   id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="show()">
+      <span style="color: rgba(255,255,255,.5);">LOGOUT</span>
+    </a>   -->
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a *ngIf="isUserLoggedIn()" class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i *ngIf="isUserLoggedIn()" class="fas fa-user-alt">A</i> 
+        </a>
+        <ul class="dropdown-menu">
+          <li class="nav-link">Hii {{value}}</li>
+          <li><a class="nav-link" href="/myaccount">My Account</a></li>
+          <li><a href="#">My Orders</a></li>
+          <li><a class="nav-link" (click)="logout()">LOGOUT</a></li>
+        </ul>
+
+      </li>
+    </ul>
+    
+
+    <button routerLink="wishlist" class="btn btn-custom btn-sm">
+      <i style="font-size: 30px;" class="pi pi-heart"></i>
+      <div style="font-size: 10px;" class="badge bg-danger">{{totalWishlistItem}}</div> 
+     </button> 
+
+     <button routerLink="cart" class="btn btn-custom btn-sm">
+      <i style="font-size: 30px;" class="pi pi-shopping-cart"></i>
+      <div style="font-size: 10px;" class="badge bg-primary">{{totalCartItem}}</div> 
+     </button> 
+      
+      <!-- <p>
+       Select Language:
+       <select (click)="selectLang($any($event.target).value)">
+         <option *ngFor="let item of supportLanguages">{{item}}</option>
+       </select>
+     </p>  -->
+
+    
+  </div>
+
+
+</nav>

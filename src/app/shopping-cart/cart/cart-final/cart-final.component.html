@@ -1,0 +1,98 @@
+<div style="height: 480px;padding-top: 60px; margin: 12px;">
+    <ng-container >
+        <div class="row">
+            <div class="col-1 col-md-1"></div>
+            <div class="col-10 col-md-6">
+                <div class="row"
+                    *ngFor="let item of cartItems; let i = index">
+                    <div class="col-12 col-md-12">
+                        <div class="row customer-border">
+                            <div class="col-9 col-md-10">
+                                <div>{{item.name}}</div>
+                                <div class="price">{{item.price | currency:'INR' }}</div>
+                                <div class="quantityInStock"><span style="font-size: 14px;font-weight: 300;">{{'text.availability' | translate}}: </span><span style="color:#5be05b;font-weight: 600;">{{quantity}} in stock </span></div>
+                                <div class="increment">
+                                    <button (click)="decrement(item)">
+                                        <i class="fa fa-minus"  ></i>
+                                    </button>
+                                    <span style="color: black; padding: 1px 4px;">{{item.qty}}</span>
+                                    <button (click)="increment(item)">
+                                        <i class="fa fa-plus"  ></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <img class="col-3 col-md-2" src="{{item.imageUrl}}" alt="" [routerLink]="['/product',item.id]">
+                        </div>
+                        <div class="row" style="border-bottom: 1px solid black;">
+                            <div class="col-6 col-md-6 delete_btn" (click)="removeItem(item)">{{'button.delete' | translate}}</div>
+                            <div class="col-6 col-md-6 wishlist_btn" (click)="addToWishlist(item)">{{'button.addToWishlist' | translate}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1 col-md-1"></div>
+            <div class="col-11 col-md-3" *ngIf="cartItems.length!=0">
+                <div class="prc-summary">
+                    <div class="price-summary">
+                        {{'text.priceSummary' | translate}}
+                    </div>
+                    <div class="paymentBox ">
+                        <div class="paymentBoxInner">
+                            <span>{{'text.totalMrp' | translate}}</span>
+                            <span class="price">{{cartTotal | currency:'INR' }}</span>
+                        </div>
+                        <div class="paymentBoxInner">
+                            <span>{{'text.deliveryFee' | translate}}</span>
+                            <span style="color: rgb(29, 136, 2);">{{'text.free' | translate}}</span>
+                        </div>
+                        <div class="paymentBoxInner">
+                            <span>{{'text.bagDiscount' | translate}}</span>
+                            <span class="price">-{{ discountTotal | currency:'INR' }}</span>
+                        </div>
+                        <div class="paymentBoxInner" style="font-family: montserrat, sans-serif;">
+                            <span>{{'text.subTotal' | translate}}&nbsp;</span>
+                            <span class="price">{{ cartTotal-discountTotal | currency:'INR' }}</span>
+                        </div>
+                        <div class="savingLabel">
+                            <span id="os_savingLabel_text">You are saving {{ discountTotal | currency:'INR' }} on this
+                                order
+                            </span>
+                        </div>
+                    </div>
+                    <div class="pmts-wrap">
+                        <div class="pmts-pr">
+                            <div>{{'text.subTotal' | translate}}</div>
+                            <div style="font-size: medium;">{{ cartTotal-discountTotal | currency:'INR' }}</div>
+                        </div>
+                        <div class="btn-area">
+                            <div>
+                                <button id="os_payNow_btn" class="pmts-btn" routerLink="/address"
+                                    style="background-color: rgb(228, 169, 93); border-color: rgb(228, 169, 93); color: white;">{{'button.continue' | translate}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1 col-md-1"></div>
+        </div>
+        <div class="row" *ngIf="cartItems.length==0">
+            <div class="col-1 col-md-2"></div>
+            <div class="col-10 col-md-8">
+                <div>
+                    <h2>{{'text.cart' | translate}}</h2>
+                </div>
+                <div class="card">
+                    <div style="font-size: large;padding: 4px;margin: 12px;">{{'text.emptyCart' | translate}}</div>
+                </div>
+                <div style="padding-top: 15px;">
+                    <button class="pmts-btn" routerLink="/shoping-cart"
+                        style="background-color: rgb(228, 169, 93); border-color: rgb(228, 169, 93); color: white;">{{'button.shopNow' | translate}}</button>
+                </div>
+            </div>
+            <div class="col-1 col-md-2"></div>
+        </div>
+    </ng-container>
+</div>

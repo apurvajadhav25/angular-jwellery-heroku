@@ -1,0 +1,48 @@
+<div style="height: 480px;padding-top: 60px; margin: 12px;">
+    <ng-container >
+        <div class="row">
+            <div class="col-1 col-md-1"></div>
+            <div class="col-10 col-md-6">
+                <div class="row"
+                    *ngFor="let item of wishlistItems; let i = index">
+                    <div class="col-12 col-md-12">
+                        <div class="row customer-border">
+                            <div class="col-9 col-md-10">
+                                <div>{{item.name}}</div>
+                                <div class="price">{{item.price | currency:'INR' }}</div>
+                                <div>{{item.description}}</div>
+                            </div>
+                            <img class="col-3 col-md-2" src="{{item.imageUrl}}" alt="" [routerLink]="['/product',item.id]">
+                        </div>
+                        <div class="row" style="border-bottom: 1px solid black;">
+                            <div class="col-6 col-md-6 delete_btn" (click)="removeItem(item)">{{'button.delete' | translate}}</div>
+                            <div class="col-6 col-md-6 wishlist_btn" (click)="addToCart(item)">{{'button.addToCart' | translate}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1 col-md-1"></div>
+            <div class="col-12 col-md-3"></div>
+            <div class="col-1 col-md-1"></div>
+        </div>
+        <div class="row" *ngIf="wishlistItems.length==0">
+            <div class="col-1 col-md-2"></div>
+            <div class="col-10 col-md-8">
+                <div>
+                    <h2>{{'text.wishlist' | translate}}</h2>
+                </div>
+                <div class="card">
+                    <div style="font-size: large;padding: 4px;margin: 12px;">{{'text.emptyWishlist' | translate}}</div>
+                </div>
+                <div style="padding-top: 15px;">
+                    <button class="pmts-btn" routerLink="/shoping-cart"
+                        style="background-color: rgb(228, 169, 93); border-color: rgb(228, 169, 93); color: white;">{{'button.shopNow' | translate}}</button>
+                </div>
+            </div>
+            <div class="col-1 col-md-2"></div>
+        </div>
+    </ng-container>
+</div>
