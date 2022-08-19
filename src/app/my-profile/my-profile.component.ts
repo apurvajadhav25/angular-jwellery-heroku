@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormControlDirective, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, FormControlDirective, UntypedFormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { MessengerService } from 'src/app/services/messenger.service';
 import { RegisterService } from 'src/app/services/register/register.service';
@@ -10,7 +10,7 @@ import { RegisterService } from 'src/app/services/register/register.service';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-  userDetailForm!: FormGroup;
+  userDetailForm!: UntypedFormGroup;
   clickEventSubscription: Subscription | undefined;
   value: string =  ""
   data: any
@@ -30,13 +30,13 @@ export class MyProfileComponent implements OnInit {
 
     
     
-    this.userDetailForm = new FormGroup({
-      username: new FormControl('',  Validators.required),
+    this.userDetailForm = new UntypedFormGroup({
+      username: new UntypedFormControl('',  Validators.required),
       //name: new FormControl(''),
-      emailId: new FormControl(''),
-      password: new FormControl('',Validators.required),
-      mobileNumber: new FormControl(''),
-      language: new FormControl(''),
+      emailId: new UntypedFormControl(''),
+      password: new UntypedFormControl('',Validators.required),
+      mobileNumber: new UntypedFormControl(''),
+      language: new UntypedFormControl(''),
       //id: new FormControl(this.id)
   });
     

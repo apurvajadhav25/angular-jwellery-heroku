@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessengerService } from 'src/app/services/messenger.service';
 import { RegisterService } from 'src/app/services/register/register.service';
@@ -11,15 +11,15 @@ import { RegisterService } from 'src/app/services/register/register.service';
 })
 export class LoginComponent implements OnInit {
   res: any;
-  userDetailForm!: FormGroup;
+  userDetailForm!: UntypedFormGroup;
   constructor(private registerService: RegisterService,
               private router: Router,
               private messengerService: MessengerService) { }
 
   ngOnInit(): void {
-    this.userDetailForm = new FormGroup({
-      username: new FormControl(''),
-      password: new FormControl('')
+    this.userDetailForm = new UntypedFormGroup({
+      username: new UntypedFormControl(''),
+      password: new UntypedFormControl('')
      
   });
   }

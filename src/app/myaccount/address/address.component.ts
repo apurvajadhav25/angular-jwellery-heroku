@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddressService } from 'src/app/services/address/address.service';
 import {DialogModule} from 'primeng/dialog';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { OrderService } from 'src/app/services/order/order.service';
 import { SharedService } from 'src/app/services/shared.service';
 
@@ -19,7 +19,7 @@ export class AddressComponent implements OnInit {
   addresses: any;
   display: boolean = false;
   edit: boolean = false;
-  addressForm!: FormGroup;
+  addressForm!: UntypedFormGroup;
   id: any;
   address: string = '';
   name: string = '';
@@ -42,10 +42,10 @@ export class AddressComponent implements OnInit {
  this.subTotal = this.cartTotal - this.subTotal;
     })
 
-    this.addressForm = new FormGroup({
-      address: new FormControl(''),
-      name: new FormControl(''),
-      mobileNumber: new FormControl('')
+    this.addressForm = new UntypedFormGroup({
+      address: new UntypedFormControl(''),
+      name: new UntypedFormControl(''),
+      mobileNumber: new UntypedFormControl('')
      
   });
     this.getProducts()

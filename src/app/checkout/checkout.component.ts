@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CheckoutService } from '../services/checkout/checkout.service';
 import { RegisterService } from '../services/register/register.service';
@@ -11,22 +11,22 @@ import { RegisterService } from '../services/register/register.service';
 })
 export class CheckoutComponent implements OnInit {
 
-  checkoutForm!: FormGroup;
+  checkoutForm!: UntypedFormGroup;
 
   constructor(private service: CheckoutService,
                private router: Router) { }
 
   ngOnInit(): void {
-    this.checkoutForm = new FormGroup({
-      firstname: new FormControl('',  Validators.required),
-      lastname: new FormControl('',  Validators.required),
-      buildingname: new FormControl('',  Validators.required),
-      area: new FormControl(''),
-      landmark: new FormControl(''),
-      city: new FormControl('',  Validators.required),
-      state: new FormControl('',  Validators.required),
-      emailId: new FormControl('', Validators.required),
-      mobilenumber: new FormControl('',  Validators.required),
+    this.checkoutForm = new UntypedFormGroup({
+      firstname: new UntypedFormControl('',  Validators.required),
+      lastname: new UntypedFormControl('',  Validators.required),
+      buildingname: new UntypedFormControl('',  Validators.required),
+      area: new UntypedFormControl(''),
+      landmark: new UntypedFormControl(''),
+      city: new UntypedFormControl('',  Validators.required),
+      state: new UntypedFormControl('',  Validators.required),
+      emailId: new UntypedFormControl('', Validators.required),
+      mobilenumber: new UntypedFormControl('',  Validators.required),
   });
 }
 

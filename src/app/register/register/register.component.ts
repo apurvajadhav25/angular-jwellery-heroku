@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { RegisterService } from 'src/app/services/register/register.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,19 +11,19 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  userDetailForm!: FormGroup;
+  userDetailForm!: UntypedFormGroup;
 
   constructor(private service: RegisterService,
                private router: Router) { }
 
   ngOnInit(): void {
-    this.userDetailForm = new FormGroup({
-      username: new FormControl('',  Validators.required),
+    this.userDetailForm = new UntypedFormGroup({
+      username: new UntypedFormControl('',  Validators.required),
       //name: new FormControl(''),
-      emailId: new FormControl(''),
-      password: new FormControl('',Validators.required),
-      mobileNumber: new FormControl(''),
-      language: new FormControl(''), 
+      emailId: new UntypedFormControl(''),
+      password: new UntypedFormControl('',Validators.required),
+      mobileNumber: new UntypedFormControl(''),
+      language: new UntypedFormControl(''), 
       
   });
 }
